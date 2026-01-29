@@ -1,44 +1,49 @@
 #!/bin/bash
 
-# Run using the below command
+# Run using:
 # bash vm_setup.sh
 
-echo "Downloading anaconda..."
-wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+set -e
 
-echo "Running anaconda script..."
-bash Anaconda3-2021.11-Linux-x86_64.sh -b -p ~/anaconda
+echo "=== Downloading Anaconda ==="
+wget -q https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
 
-echo "Removing anaconda script..."
+echo "=== Installing Anaconda ==="
+bash Anaconda3-2021.11-Linux-x86_64.sh -b -p $HOME/anaconda
+
+echo "=== Cleaning installer ==="
 rm Anaconda3-2021.11-Linux-x86_64.sh
 
-#activate conda
+# Activate conda
 eval "$($HOME/anaconda/bin/conda shell.bash hook)"
 
-echo "Running conda init..."
+echo "=== Initializing conda ==="
 conda init
-# Using -y flag to auto-approve
-echo "Running conda update..."
 conda update -y conda
 
-echo "Installed conda version..."
+echo "=== Conda version ==="
 conda --version
 
-echo "Running sudo apt-get update..."
-sudo apt-get update
+echo "=== Updating apt ==="
+sudo apt-get update -y
 
-echo "Installing Docker..."
-sudo apt-get -y install docker.io
+echo "=== Installing Docker ==="
+sudo apt-get install -y docker.io
 
-echo "Docker without sudo setup..."
-sudo groupadd docker
-sudo gpasswd -a $USER docker
+echo "=== Enabling Docker without sudo ==="
+sudo groupadd docker || true
+sudo usermod -aG docker $USER
 sudo service docker restart
 
-echo "Installing docker compose plugin..."
-sudo apt-get -y install docker-compose-plugin
+echo "=== Installing docker-compose (v1 legacy) ==="
+sudo apt-get install -y docker-compose
 
-echo "docker-compose version..."
+echo "=== Docker versions ==="
+docker --version
 docker-compose --version
 
+echo "=== Creating Google credentials directory ==="
 mkdir -p ~/.google/credentials
+
+echo "=== Setup complete ==="
+echo "IMPORTANT: logout/login or run 'newgrp docker' before using docker"
