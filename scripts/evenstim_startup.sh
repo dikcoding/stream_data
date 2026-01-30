@@ -1,4 +1,6 @@
-cd ~/streamify/eventsim
+#!/bin/bash
+
+cd /home/dikcode/stream_data/evenstim
 
 echo "Building Eventsim Image..."
 docker build -t events:1.0 .
