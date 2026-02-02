@@ -5,9 +5,15 @@ FROM apache/airflow:2.7.3
 ENV AIRFLOW_HOME=/opt/airflow
 
 USER root
+USER root
 RUN apt-get update && \
     ACCEPT_EULA=Y apt-get upgrade -y && \
-    apt-get install -y git
+    apt-get install -y \
+        git \
+        gcc \
+        g++ \
+        python3-dev \
+        build-essential
 
 USER airflow
 
