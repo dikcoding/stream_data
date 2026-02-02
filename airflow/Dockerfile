@@ -8,19 +8,18 @@ USER root
 RUN apt-get update && \
     ACCEPT_EULA=Y apt-get upgrade -y && \
     apt-get install -y git
-RUN pip install --upgrade pip
-# git gcc g++ -qqq
+
+USER airflow
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Ref: https://airflow.apache.org/docs/docker-stack/recipes.html
-
 SHELL ["/bin/bash", "-o", "pipefail", "-e", "-u", "-x", "-c"]
 
+USER root
 ARG CLOUD_SDK_VERSION=322.0.0
 ENV GCLOUD_HOME=/home/google-cloud-sdk
-
 ENV PATH="${GCLOUD_HOME}/bin/:${PATH}"
 
 RUN DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-${CLOUD_SDK_VERSION}-linux-x86_64.tar.gz" \
@@ -37,5 +36,4 @@ RUN DOWNLOAD_URL="https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/goo
     && gcloud --version
 
 WORKDIR $AIRFLOW_HOME
-
 USER $AIRFLOW_UID
