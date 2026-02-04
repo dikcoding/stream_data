@@ -18,7 +18,7 @@ java --version
 rm openjdk-11.0.2_linux-x64_bin.tar.gz
 
 echo "Downloading Spark..."
-wget https://dlcdn.apache.org/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz
+wget https://archive.apache.org/dist/spark/spark-3.0.3/spark-3.0.3-bin-hadoop3.2.tgz
 
 echo "Extracting Spark..."
 tar xzfv spark-3.0.3-bin-hadoop3.2.tgz
