@@ -33,29 +33,6 @@ docker run -itd \
     --randomseed 2 \
     --continuous
 
-docker run -itd \
-  --network host \
-  --name events_new \
-  --memory="2.5g" \
-  --memory-swap="6g" \
-  --oom-kill-disable \
-  events:1.0 \
-    -c "examples/alt-example-config.json" \
-    --start-time "2022-03-20T08:20:00" \
-    --end-time "2022-03-20T18:00:00" \
-    --nusers 900000 \
-    --growth-rate 12 \
-    --userid 6000000 \
-    --kafkaBrokerList localhost:9092 \
-    --randomseed 3 \
-    --continuous
-
-
-docker logs --follow events_example
-
-docker logs --follow events_alt
-
-
 export KAFKA_ADDRESS=
 export GCS_STORAGE_PATH=gs://streamify
 
