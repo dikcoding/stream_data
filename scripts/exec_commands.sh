@@ -56,8 +56,8 @@ docker logs --follow events_example
 docker logs --follow events_alt
 
 
-export KAFKA_ADDRESS=35.226.153.183
-export GCS_STORAGE_PATH=gs://bucket-streamify
+export KAFKA_ADDRESS=
+export GCS_STORAGE_PATH=gs://streamify
 
 #Stream page view events into Spark
 spark-submit \
@@ -66,12 +66,12 @@ stream_page_view_events.py
 
 #Stream listen events into Spark
 spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
 stream_listen_events.py
 
 #Stream all events into Spark
 nohup spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
 stream_all_events.py \
 > nohup.out 2>&1 &
 
