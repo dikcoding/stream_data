@@ -33,8 +33,8 @@ docker run -itd \
     --randomseed 2 \
     --continuous
 
-export KAFKA_ADDRESS=
-export GCS_STORAGE_PATH=gs://streamify
+export KAFKA_ADDRESS=35.226.153.183
+export GCS_STORAGE_PATH=gs://bucket-streamify
 
 #Stream page view events into Spark
 spark-submit \
