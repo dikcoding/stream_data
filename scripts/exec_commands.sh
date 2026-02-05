@@ -51,11 +51,6 @@ docker run -itd \
     --continuous
 
 
-docker logs --follow events_example
-
-docker logs --follow events_alt
-
-
 export KAFKA_ADDRESS=35.226.153.183
 export GCS_STORAGE_PATH=gs://bucket-streamify
 
