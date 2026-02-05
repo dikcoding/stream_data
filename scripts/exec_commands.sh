@@ -66,12 +66,12 @@ stream_page_view_events.py
 
 #Stream listen events into Spark
 spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3 \
 stream_listen_events.py
 
 #Stream all events into Spark
 nohup spark-submit \
-  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
+  --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3 \
 stream_all_events.py \
 > nohup.out 2>&1 &
 
