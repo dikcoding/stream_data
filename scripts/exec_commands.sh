@@ -59,13 +59,6 @@ docker logs --follow events_alt
 export KAFKA_ADDRESS=35.226.153.183
 export GCS_STORAGE_PATH=gs://bucket-streamify
 
-ssh ${SPARK_USER}@${SPARK_MASTER_IP} << 'EOF'
-
-cd ~/stream_data/spark_stream
-
-export KAFKA_ADDRESS=35.226.153.183
-export GCS_STORAGE_PATH=gs://bucket-streamify
-
 #Stream page view events into Spark
 spark-submit \
   --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.3 \
@@ -82,7 +75,7 @@ nohup spark-submit \
 stream_all_events.py \
 > nohup.out 2>&1 &
 
-EOF
+
 
 docker run -it \
   --network host \
