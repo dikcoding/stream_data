@@ -51,8 +51,8 @@ docker run -itd \
     --continuous
 
 
-export KAFKA_ADDRESS=35.226.153.183
-export GCS_STORAGE_PATH=gs://bucket-streamify
+export KAFKA_ADDRESS=136.111.197.19
+export GCS_STORAGE_PATH=gs://dikcode-bucket
 
 #Stream page view events into Spark
 spark-submit \
