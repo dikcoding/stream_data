@@ -54,7 +54,7 @@ docker logs --follow events_example
 
 docker logs --follow events_alt
 
-export KAFKA_ADDRESS=136.111.197.19
+export KAFKA_ADDRESS=35.223.242.16
 export GCS_STORAGE_PATH=gs://dikcode-bucket
 
 #Stream page view events into Spark
