@@ -50,6 +50,9 @@ docker run -itd \
     --randomseed 3 \
     --continuous
 
+docker logs --follow events_example
+
+docker logs --follow events_alt
 
 export KAFKA_ADDRESS=136.111.197.19
 export GCS_STORAGE_PATH=gs://dikcode-bucket
