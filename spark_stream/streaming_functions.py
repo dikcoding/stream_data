@@ -29,7 +29,6 @@ def create_or_get_spark_session(app_name, master="yarn"):
     spark = (SparkSession
              .builder
              .appName(app_name)
-             .master(master=master)
              .getOrCreate())
 
     return spark
