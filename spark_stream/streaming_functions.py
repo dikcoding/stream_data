@@ -5,7 +5,7 @@ from pyspark.sql.functions import from_json, col, month, hour, dayofmonth, col, 
 @udf
 def string_decode(s, encoding='utf-8'):
     if s:
-        return (s.encode('latin1')        # To bytes, required by 'unicode-escape'
+        return (s.encode('latin1')         # To bytes, required by 'unicode-escape'
                 .decode('unicode-escape') # Perform the actual octal-escaping decode
                 .encode('latin1')         # 1:1 mapping back to bytes
                 .decode(encoding)         # Decode original encoding
