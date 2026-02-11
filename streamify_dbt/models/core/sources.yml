@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: staging
+    database: "{{ target.project }}"
+    schema: streamify_stg
+
+    tables:
+      - name: songs
+      - name: listen_events
