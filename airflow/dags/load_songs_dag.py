@@ -18,7 +18,7 @@ default_args ={
 
 AIRFLOW_HOME = os.environ.get('AIRFLOW_HOME', '/opt/airflow')
 
-URL = 'https://raw.githubusercontent.com/dikcoding/stream_data/main/streamify_dbt/seeds/songs.csv'
+URL = 'https://github.com/ankurchavda/streamify/raw/main/dbt/seeds/songs.csv'
 CSV_FILENAME = 'songs.csv'
 PARQUET_FILENAME = CSV_FILENAME.replace('csv', 'parquet')
 
