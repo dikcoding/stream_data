@@ -1,4 +1,4 @@
-streamify:
+streamify_dbt:
   outputs:
     dev:
       dataset: streamify_stg
