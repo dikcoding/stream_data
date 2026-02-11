@@ -1,9 +1,0 @@
-version: 2
-
-seeds:
-  - name: songs
-    config:
-      column_types:
-        danceability: FLOAT64
-        duration: FLOAT64
-        tempo: FLOAT64
