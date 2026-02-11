@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Changing permissions for dbt folder..."
-cd /home/dikcode/stream_data && sudo chmod -R 777 dbt
+cd /home/dikcode/stream_data && sudo chmod -R 777 streamify_dbt
 
 echo "Building airflow docker images..."
 cd /home/dikcode/stream_data/airflow
