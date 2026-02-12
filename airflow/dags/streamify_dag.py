@@ -50,12 +50,12 @@ with DAG(
     
     initate_dbt_task = BashOperator(
         task_id = 'dbt_initiate',
-        bash_command = 'cd /home/dikcode/stream_data/streamify_dbt && dbt deps && dbt seed --select state_codes --profiles-dir . --target prod'
+        bash_command = 'cd /dbt && dbt deps && dbt seed --select state_codes --profiles-dir . --target prod'
     )
 
     execute_dbt_task = BashOperator(
         task_id = 'dbt_streamify_run',
-        bash_command = 'cd /home/dikcode/stream_data/streamify_dbt && dbt deps && dbt run --profiles-dir . --target prod'
+        bash_command = 'cd /dbt && dbt deps && dbt run --profiles-dir . --target prod'
     )
 
     for event in EVENTS:
